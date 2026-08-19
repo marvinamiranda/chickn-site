@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chickn — vincular com seu personal 🐔</title>
+<meta name="description" content="Você recebeu um convite do seu personal no Chickn. Abra o app e use o código pra vincular.">
+<meta name="theme-color" content="#0E0E10">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Chickn — convite do seu personal">
+<meta property="og:description" content="Abra o Chickn e use o código pra vincular com seu personal.">
+<meta property="og:image" content="https://marvinamiranda.github.io/chickn-site/icon.png">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0E10; --surface:#18181B; --surface2:#26262B;
+    --neon:#C6FF00; --neon-dim:#9BCC00; --magenta:#FF2D78;
+    --text:#F5F5F7; --muted:#9A9AA2;
+    --display:"Space Grotesk",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--body); background:var(--bg); color:var(--text);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  a{color:inherit;text-decoration:none}
+  .card{
+    width:100%; max-width:440px; background:var(--surface);
+    border:1px solid rgba(255,255,255,.06); border-radius:20px;
+    padding:32px 28px; text-align:center;
+  }
+  .logo{width:56px;height:56px;border-radius:14px;margin:0 auto 18px;display:block}
+  h1{font-family:var(--display);font-size:1.5rem;font-weight:700;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .codebox{
+    background:var(--bg); border:1px dashed rgba(198,255,0,.4); border-radius:14px;
+    padding:16px; margin-bottom:20px;
+  }
+  .codelabel{color:var(--muted);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .code{
+    font-family:var(--display); font-size:2rem; font-weight:700; letter-spacing:.16em;
+    color:var(--neon); word-break:break-all;
+  }
+  .copy{
+    margin-top:10px; font-size:.8rem; color:var(--muted); background:none;
+    border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 14px;
+    cursor:pointer; font-family:var(--body); transition:.15s;
+  }
+  .copy:hover{border-color:var(--neon);color:var(--neon)}
+  .btn{
+    display:block; width:100%; padding:14px; border-radius:12px; font-weight:800;
+    font-family:var(--display); font-size:1rem; margin-bottom:12px; transition:.15s;
+  }
+  .btn-primary{background:var(--neon);color:#0e0f12}
+  .btn-primary:hover{background:var(--neon-dim)}
+  .stores{display:flex;gap:10px;margin-top:8px}
+  .store{
+    flex:1; padding:11px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+    font-size:.85rem; font-weight:600; color:var(--text); transition:.15s;
+  }
+  .store:hover{border-color:var(--neon);color:var(--neon)}
+  .steps{text-align:left;margin:22px 2px 0;color:var(--muted);font-size:.88rem}
+  .steps li{margin-bottom:6px}
+  .steps b{color:var(--text)}
+  .foot{margin-top:22px;font-size:.78rem;color:var(--muted)}
+  .foot a{color:var(--neon-dim);text-decoration:underline}
+  .nocode{color:var(--magenta);font-weight:600}
+</style>
+</head>
+<body>
+  <main class="card">
+    <img src="icon.png" alt="Chickn" class="logo">
+    <h1>Bora treinar junto 🐔</h1>
+    <p class="sub">Seu personal te convidou pro <b>Chickn</b>. Use o código abaixo pra vincular.</p>
+
+    <div class="codebox" id="codebox">
+      <div class="codelabel">Seu código de convite</div>
+      <div class="code" id="code">—</div>
+      <button class="copy" id="copyBtn" hidden>copiar código</button>
+    </div>
+
+    <a class="btn btn-primary" id="openApp" href="#">Abrir no Chickn</a>
+
+    <div class="stores">
+      <a class="store" href="https://play.google.com/store/apps/details?id=app.chickn">▸ Google Play</a>
+      <a class="store" href="https://apps.apple.com/br/app/id6788411736">▸ App Store</a>
+    </div>
+
+    <ol class="steps">
+      <li>1. Instale o <b>Chickn</b> (grátis) na sua loja.</li>
+      <li>2. Abra o app e toque em <b>vincular com personal</b>.</li>
+      <li>3. Digite ou cole o <b>código</b> acima.</li>
+    </ol>
+
+    <p class="foot">Não esperava esse convite? É só ignorar. · <a href="index.html">chickn.app</a></p>
+  </main>
+
+  <script>
+    (function () {
+      var code = new URLSearchParams(location.search).get('code');
+      var codeEl = document.getElementById('code');
+      var openApp = document.getElementById('openApp');
+      var copyBtn = document.getElementById('copyBtn');
+
+      if (code && /^[A-Za-z0-9_-]{4,64}$/.test(code)) {
+        codeEl.textContent = code;
+        var deep = 'chickn://vincular?code=' + encodeURIComponent(code);
+        openApp.setAttribute('href', deep);
+        copyBtn.hidden = false;
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard && navigator.clipboard.writeText(code).then(function () {
+            copyBtn.textContent = 'copiado ✓';
+            setTimeout(function () { copyBtn.textContent = 'copiar código'; }, 1600);
+          });
+        });
+        // tenta abrir o app automaticamente (se instalado); se não, o usuário fica na página.
+        openApp.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.location.href = deep;
+        });
+      } else {
+        codeEl.innerHTML = '<span class="nocode">código ausente</span>';
+        openApp.setAttribute('href', 'index.html');
+        document.querySelector('.codelabel').textContent = 'Peça o link completo ao seu personal';
+      }
+    })();
+  </script>
+</body>
+</html>
