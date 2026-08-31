@@ -69,6 +69,13 @@
   .tip{background:linear-gradient(160deg,rgba(198,255,0,.08),rgba(24,24,27,.3));border:1px solid rgba(198,255,0,.2);border-left:3px solid var(--neon);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:.94rem;color:#dcdce0}
   .tip b{color:var(--neon)}
 
+  /* prints do app */
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin:20px 0 6px}
+  .shot{margin:0}
+  .shot img{width:100%;display:block;border-radius:18px;background:var(--bg);border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 40px rgba(198,255,0,.06)}
+  .shot figcaption{color:var(--muted);font-size:.84rem;margin-top:9px;line-height:1.45}
+  .shot figcaption b{color:var(--text)}
+
   /* code / deep link */
   code.dl{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface2);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:2px 7px;font-size:.86em;color:var(--neon)}
 
@@ -127,6 +134,10 @@
       <li>Entre com sua conta (<span class="k">Entrar com Google</span> ou Apple) — o coaching sincroniza entre você e seus alunos, então precisa de login.</li>
       <li>Você cai na <b>Área do Personal</b>, com quatro blocos: <span class="k">Grupos</span>, <span class="k">Programas</span>, <span class="k">Alunos</span> e <span class="k">Minha marca</span>.</li>
     </ul>
+    <figure class="shot" style="max-width:260px;margin:18px 0 6px">
+      <img src="shots/personal-area.png" alt="Área do Personal: grupos, programas, alunos, financeiro e minha marca" loading="lazy">
+      <figcaption>A <b>Área do Personal</b>. O bloco de cima é o que precisa de você hoje — quem sumiu, quem está sem turma.</figcaption>
+    </figure>
     <div class="tip"><b>Dica:</b> em <span class="k">Minha marca</span> você define a foto, o nome e a cor que aparecem pro aluno — ele vê “SEU PERSONAL” com a sua cara no topo da home dele.</div>
     <p class="muted">Também dá pra ligar em <b>Configurações → “Sou personal trainer”</b>.</p>
   </section>
@@ -180,6 +191,16 @@
       <li>No aluno, aba <span class="k">Relatório</span>: frequência, aderência e progressão.</li>
       <li>No grupo, <span class="k">Relatório do grupo</span>: quem treinou na semana, ranking de aderência e a lista de “sumidos” (parados há mais de 5 dias).</li>
     </ul>
+    <div class="shots">
+      <figure class="shot">
+        <img src="shots/personal-relatorio.png" alt="Relatório do grupo com ranking de aderência" loading="lazy">
+        <figcaption><b>Relatório do grupo:</b> quantos estão ativos, quantos sumiram e o ranking de aderência da semana.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/personal-pagamentos.png" alt="Tela de pagamentos com mensalidades pagas e em aberto" loading="lazy">
+        <figcaption><b>Financeiro:</b> mensalidade por aluno, o que já entrou no mês e a previsão do próximo ciclo.</figcaption>
+      </figure>
+    </div>
     <div class="tip">Tudo sincroniza entre as contas em tempo real. O aluno pode <b>revogar o vínculo</b> quando quiser — o consentimento é dele.</div>
   </section>
 
