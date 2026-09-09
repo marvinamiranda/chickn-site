@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chickn para Personais — guia rápido 🧑‍🏫</title>
-<meta name="description" content="Guia rápido do Modo Personal do Chickn: ative o modo coach, crie programas, organize alunos em grupos, convide alunos e acompanhe a execução de cada um.">
+<meta name="description" content="Guia rápido do Modo Personal do Chickn: monte a avaliação física do aluno (anamnese, dobras, perimetria) dentro do app, crie programas, organize alunos em grupos e acompanhe a execução de cada um.">
 <meta name="theme-color" content="#0E0E10">
 <meta property="og:title" content="Chickn para Personais — guia rápido">
-<meta property="og:description" content="Ative o Modo Personal, crie programas, monte grupos, convide alunos e acompanhe a execução. Em poucos minutos.">
+<meta property="og:description" content="Avaliação física, anamnese e prontuário dentro do app — mais programas, grupos e acompanhamento. Em poucos minutos.">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://marvinamiranda.github.io/chickn-site/icon.png">
 <link rel="icon" href="icon.png">
@@ -95,6 +95,22 @@
   .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .foot-links a{margin-left:18px;transition:color .14s} .foot-links a:hover{color:var(--neon)}
 
+  /* vitrine da avaliacao (#238) */
+  .feature{background:linear-gradient(155deg,rgba(198,255,0,.09),rgba(24,24,27,.4));border:1px solid rgba(198,255,0,.2);border-radius:26px;padding:34px 30px;margin:10px 0 4px}
+  .feature h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.8px;line-height:1.12;margin-bottom:12px}
+  .feature h2 .hl{color:var(--neon)}
+  .feature p{color:#cfcfd4;max-width:60ch}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin:24px 0 6px}
+  .stats div{background:rgba(14,14,16,.5);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 12px;text-align:center}
+  .stats b{display:block;font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--neon);line-height:1.1}
+  .stats span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.35}
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:26px 0 8px}
+  .fcard{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:18px 18px 16px}
+  .fcard h3{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:6px}
+  .fcard p{color:var(--muted);font-size:.9rem;margin:0}
+  .fcard .fico{font-size:1.25rem;line-height:1;margin-bottom:8px}
+  .shot.big{max-width:330px;margin:26px auto 4px}
+
   @media(max-width:560px){.sh h2{font-size:1.2rem}.badge{min-width:0;flex:1}}
 </style>
 </head>
@@ -111,7 +127,7 @@
   <div class="wrap">
     <span class="pill">🧑‍🏫 Guia rápido pro Personal</span>
     <h1>Seus treinos, <span class="hl">seus alunos</span>, num lugar só.</h1>
-    <p class="sub">Em poucos minutos você ativa o Modo Personal, monta um programa, organiza seus alunos em grupos e acompanha a execução de cada um. Passo a passo, com os nomes certinhos dos botões.</p>
+    <p class="sub">Em poucos minutos você ativa o Modo Personal, monta um programa, organiza seus alunos em grupos, <b>faz a avaliação física dentro do app</b> e acompanha a execução de cada um. Passo a passo, com os nomes certinhos dos botões.</p>
 
     <div class="toc">
       <a href="#ativar"><b>1</b> Ativar</a>
@@ -119,9 +135,71 @@
       <a href="#grupo"><b>3</b> Montar grupo</a>
       <a href="#convite"><b>4</b> Convidar aluno</a>
       <a href="#acompanhar"><b>5</b> Acompanhar</a>
+      <a href="#fichas"><b>6</b> Avaliar</a>
     </div>
   </div>
 </header>
+
+<section class="wrap">
+  <div class="feature">
+    <span class="pill" style="margin-bottom:16px">🆕 Novidade</span>
+    <h2>A avaliação do seu aluno <span class="hl">inteira dentro do app</span>.</h2>
+    <p>Anamnese, PAR-Q, dobras cutâneas, perimetria, sinais vitais, testes de
+    condicionamento e prontuário. Sem Google Forms, sem planilha, sem foto de ficha
+    no WhatsApp — e o resultado já nasce colado no treino que você prescreveu pra
+    ele.</p>
+
+    <div class="stats">
+      <div><b>21</b><span>modelos prontos</span></div>
+      <div><b>35</b><span>fórmulas com a fonte citada</span></div>
+      <div><b>15</b><span>tabelas de referência</span></div>
+      <div><b>240</b><span>campos catalogados</span></div>
+    </div>
+
+    <figure class="shot big">
+      <img src="shots/personal-comparativo.png" alt="Comparativo de avaliações: peso, IMC e medidas antes, depois e a diferença" loading="lazy">
+      <figcaption><b>Antes × Depois × Δ:</b> duas avaliações lado a lado, com a diferença calculada. Compartilha como imagem e o aluno recebe pronto no WhatsApp.</figcaption>
+    </figure>
+
+    <div class="feat-grid">
+      <div class="fcard">
+        <div class="fico">📋</div>
+        <h3>Traga o seu questionário</h3>
+        <p>Já tem a sua anamnese em PDF, Word ou foto? A IA lê e monta o modelo dentro do app. Você não recomeça do zero nem abandona o que já funciona.</p>
+      </div>
+      <div class="fcard">
+        <div class="fico">✉️</div>
+        <h3>O aluno sem app também responde</h3>
+        <p>Manda a ficha por e-mail, ele responde o e-mail, e você cola a resposta de volta — a IA transcreve pros campos certos. Serve pro aluno que nunca vai baixar nada.</p>
+      </div>
+      <div class="fcard">
+        <div class="fico">📵</div>
+        <h3>Funciona no subsolo</h3>
+        <p>A ficha preenchida na academia sem sinal não se perde: fica no aparelho e sobe sozinha quando a conexão volta.</p>
+      </div>
+      <div class="fcard">
+        <div class="fico">🧮</div>
+        <h3>Não precisa decorar equação</h3>
+        <p>Escolhe a fórmula pelo nome — Pollock, Jackson &amp; Ward, Faulkner, Petroski, Siri, Mifflin-St Jeor, Cooper, Karvonen, Brzycki — e o app escreve a expressão e cria os campos que faltam.</p>
+      </div>
+      <div class="fcard">
+        <div class="fico">🔁</div>
+        <h3>Check-in que se redispara</h3>
+        <p>Marca “repetir a cada 7 dias” e o questionário volta pra turma inteira toda semana, sem você lembrar de nada.</p>
+      </div>
+      <div class="fcard">
+        <div class="fico">🗒️</div>
+        <h3>Prontuário datado</h3>
+        <p>O lugar de anotar a razão que explica o número: a lesão do dia 12, a viagem, a semana de prova. Daqui a três meses o buraco no volume tem explicação.</p>
+      </div>
+    </div>
+
+    <div class="tip"><b>A conta é do app, a leitura é sua.</b> O Chickn calcula o
+    número do protocolo e mostra a tabela publicada com a fonte do lado — mas
+    nunca aponta em que faixa o seu aluno caiu. Classificar é laudo, e laudo é
+    seu, não de um app.</div>
+  </div>
+</section>
 
 <main class="wrap">
 
@@ -184,7 +262,7 @@
   <!-- 5 -->
   <section class="stepblock" id="acompanhar">
     <div class="sh"><div class="snum">5</div><h2>Acompanhe a execução</h2></div>
-    <p><b>O que o aluno vê:</b> um banner <span class="k">SEU PERSONAL</span> com a sua marca e um card <span class="k">DO SEU PERSONAL</span> com o programa. Ele toca <span class="k">Usar o programa do personal</span> e treina pelo “Treino de hoje” normal. O programa dele e o seu convivem em cartões separados — um nunca atrapalha o outro.</p>
+    <p><b>O que o aluno vê:</b> um cartão <span class="k">SEU PERSONAL</span> com a sua marca, os seus recados e as fichas dele — e, ao lado, um cartão <span class="k">DO SEU PERSONAL</span> com o treino de hoje já pronto pra começar. Assim que ele aceita o vínculo, o seu programa <b>entra sozinho</b>: ele não precisa escolher nada. O programa que ele montou sozinho e o seu convivem em cartões separados — um nunca atrapalha o outro.</p>
     <p style="margin-top:14px"><b>O que você vê:</b></p>
     <ul class="flow">
       <li>No aluno, aba <span class="k">Treinos</span>: acompanhamento com total, treinos na semana, volume (kg) e o RPE de cada série. Dá pra <span class="k">Registrar treino</span> pelo aluno e exportar <b>CSV</b>.</li>
@@ -202,6 +280,59 @@
       </figure>
     </div>
     <div class="tip">Tudo sincroniza entre as contas em tempo real. O aluno pode <b>revogar o vínculo</b> quando quiser — o consentimento é dele.</div>
+  </section>
+
+  <!-- 6 -->
+  <section class="stepblock" id="fichas">
+    <div class="sh"><div class="snum">6</div><h2>Avalie: questionários, fichas e prontuário</h2></div>
+    <p>Na Área do Personal, abra <span class="k">Questionários</span>. É aqui que mora a anamnese, o PAR-Q, a avaliação física, o check-in da semana — e qualquer outra ficha que você já use no papel.</p>
+
+    <p style="margin-top:16px"><b>1. Monte o modelo</b> — de três jeitos:</p>
+    <ul class="flow">
+      <li><span class="k">Modelos prontos</span>: 21 modelos em 5 famílias (anamnese, composição corporal, condicionamento, funcional e sinais vitais). Escolher <b>copia</b> as perguntas pro seu modelo — depois é tudo seu: edite, tire, acrescente.</li>
+      <li><span class="k">Importar questionário</span>: manda o print, o PDF ou o texto da ficha que você já usa e a IA monta os campos. Você revisa antes de salvar.</li>
+      <li><span class="k">Modelo em branco</span>: <span class="k">Adicionar pergunta</span>, escolha o <b>Tipo</b> (texto, número com unidade, escala, sim/não, escolha, data, título de seção ou <b>calculado</b>) e pronto.</li>
+    </ul>
+
+    <p style="margin-top:16px"><b>2. Deixe o app fazer a conta</b> — num campo <b>Calculado</b>, toque <span class="k">Escolher da biblioteca</span>: 35 fórmulas com a fonte do protocolo do lado (Pollock, Jackson &amp; Ward, Faulkner, Petroski, Siri, Brozek, Mifflin-St Jeor, Harris-Benedict, Cooper, Tanaka, Karvonen, Brzycki, Epley, Wells, TUG, SPPB). O app escreve a expressão e <b>cria sozinho as perguntas que faltam</b> pra ela funcionar.</p>
+
+    <p style="margin-top:16px"><b>3. Dispare</b> — toque <span class="k">Enviar</span>:</p>
+    <ul class="flow">
+      <li><span class="k">Um aluno</span> ou <span class="k">Uma turma</span> — a turma inteira de uma vez.</li>
+      <li><span class="k">Prazo para responder</span> e <span class="k">Repetir toda semana</span> (um disparo novo nasce sozinho a cada 7 dias — o check-in não depende de você lembrar).</li>
+      <li>Aluno que ainda não usa o app? O Chickn avisa e oferece <span class="k">Enviar por email</span> (ele responde o email, a resposta cai na sua caixa) ou <span class="k">Preencher eu mesmo</span>, pra avaliação presencial.</li>
+    </ul>
+
+    <p style="margin-top:16px"><b>4. A ficha volta</b> — o aluno vê “questionários pra responder” na home dele e toca <span class="k">Responder</span>. Respondeu por email? Abra o aluno → aba <span class="k">Fichas</span> → <span class="k">Importar resposta</span>, cole o email e a IA preenche os campos pra você conferir.</p>
+    <ul class="flow">
+      <li>Na aba <span class="k">Fichas</span> fica o histórico do aluno, com <span class="k">Evolução de</span> — escolha a medida e veja a linha.</li>
+      <li><span class="k">Comparar avaliações</span> põe duas fichas lado a lado: <b>Antes</b>, <b>Depois</b> e a diferença. Dá pra compartilhar como imagem direto no WhatsApp.</li>
+      <li><span class="k">Copiar da última ficha</span> traz os valores anteriores pra você só corrigir o que mudou.</li>
+      <li>Na aba <span class="k">Prontuário</span>, <span class="k">Nova anotação</span>: dor, lesão, viagem, falta — com a <b>data do ocorrido</b>. É o que explica o número três meses depois. Você decide se o aluno vê.</li>
+    </ul>
+
+    <div class="shots">
+      <figure class="shot">
+        <img src="shots/personal-modelos.png" alt="Catálogo de modelos prontos: anamnese, questionários e composição corporal" loading="lazy">
+        <figcaption><b>Modelos prontos:</b> 21 fichas em 5 famílias. Escolher copia as perguntas pro seu modelo — o resto você ajusta.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/personal-ficha.png" alt="Preenchimento da ficha de antropometria com o IMC calculado na hora" loading="lazy">
+        <figcaption><b>A conta na hora:</b> digitou peso e altura, o campo calculado responde. Sem planilha aberta do lado.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/personal-fichas-aluno.png" alt="Aba Fichas do aluno com gráfico de evolução e histórico de avaliações" loading="lazy">
+        <figcaption><b>Aba Fichas:</b> o histórico do aluno com a linha de evolução da medida que você escolher.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="shots/personal-recados.png" alt="Tela inicial do aluno com o recado da turma e o recado individual do personal" loading="lazy">
+        <figcaption><b>Recado em 3 níveis:</b> a sua frase de sempre, o aviso da turma e a instrução só pra ele — empilhados, com a data de cada um.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tip"><b>Recado do personal:</b> na turma, <span class="k">Recado da turma</span>; no aluno, <span class="k">Recado para este aluno</span>. Os dois aparecem na tela inicial dele junto da sua marca, com “ontem”/“há N dias” do lado — aviso velho se denuncia sozinho.</div>
+
+    <p class="muted" style="margin-top:12px">Dado de saúde é sério: só você e o aluno enxergam a ficha dele, nada disso entra em estatística nem vai pra IA sem você mandar, e o app <b>calcula mas não classifica</b> — mostra a tabela publicada com a fonte e deixa a leitura com você. Se o vínculo for desfeito, as fichas de saúde ficam 90 dias e depois são apagadas.</p>
   </section>
 
 </main>
