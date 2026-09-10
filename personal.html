@@ -3,349 +3,344 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chickn para Personais — guia rápido 🧑‍🏫</title>
-<meta name="description" content="Guia rápido do Modo Personal do Chickn: monte a avaliação física do aluno (anamnese, dobras, perimetria) dentro do app, crie programas, organize alunos em grupos e acompanhe a execução de cada um.">
+<title>Chickn para personais — guia rápido 🧑‍🏫</title>
+<meta name="description" content="Guia rápido do Modo Personal do Chickn, com as telas reais do app: anamnese e avaliação física, programa, turma e acompanhamento. Seis passos, de graça.">
 <meta name="theme-color" content="#0E0E10">
-<meta property="og:title" content="Chickn para Personais — guia rápido">
-<meta property="og:description" content="Avaliação física, anamnese e prontuário dentro do app — mais programas, grupos e acompanhamento. Em poucos minutos.">
+<meta property="og:title" content="Chickn para personais — guia rápido">
+<meta property="og:description" content="Da anamnese ao treino de hoje, sem trocar de app. Seis passos com as telas reais.">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://marvinamiranda.github.io/chickn-site/icon.png">
+<meta property="og:image" content="https://chicknapp.com/icon.png">
 <link rel="icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E0E10; --surface:#18181B; --surface2:#26262B;
-    --neon:#C6FF00; --neon-dim:#9BCC00; --magenta:#FF2D78;
-    --text:#F5F5F7; --muted:#9A9AA2;
-    --display:"Space Grotesk",system-ui,sans-serif;
-    --body:"Inter",system-ui,sans-serif;
+    --ink:#0E0E10;          /* o fundo do app */
+    --graphite:#17181C;
+    --neon:#C6FF00;         /* a marca — só onde o app usa: ação */
+    --paper:#F1F2EE;        /* o guia é documento, não vitrine */
+    --paper2:#E4E6DE;
+    --rule:#D3D6CB;
+    --ink-on-paper:#14150F;
+    --mute-dark:#8E8F95;
+    --mute-light:#5E6157;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--ink);color:#F2F3EF;
+    font-family:"Archivo",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-variation-settings:"wdth" 100;
+    line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .col{max-width:62ch}
 
-  /* nav */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(14,14,16,.72);border-bottom:1px solid rgba(255,255,255,.06)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1080px;margin:0 auto;padding:0 24px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.2rem}
-  .brand img{width:32px;height:32px;border-radius:8px}
-  .brand span{color:var(--neon)}
-  .nav-link{font-weight:600;font-size:.92rem;color:var(--muted);transition:color .14s}
-  .nav-link:hover{color:var(--neon)}
+  /* ---------- tipografia ----------
+     Uma família só. A hierarquia vem da LARGURA (Archivo é variável no eixo
+     wdth): display expandido, rótulo condensado. É o que substitui o
+     caixa-alta espaçado como marcador de rótulo. */
+  h1{
+    font-size:clamp(2.3rem,7.2vw,4.4rem);line-height:.98;
+    font-weight:800;font-variation-settings:"wdth" 112;
+    letter-spacing:-.028em;text-wrap:balance;
+  }
+  h2{
+    font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.06;
+    font-weight:800;font-variation-settings:"wdth" 108;
+    letter-spacing:-.022em;text-wrap:balance;
+  }
+  h3{font-size:1.06rem;font-weight:700;font-variation-settings:"wdth" 104;letter-spacing:-.01em;line-height:1.25}
+  .lbl{
+    font-size:.78rem;font-weight:700;font-variation-settings:"wdth" 74;
+    letter-spacing:.06em;color:var(--mute-dark);
+  }
+  .lead{font-size:clamp(1.02rem,2.1vw,1.2rem);color:#C9CBC4}
 
-  /* hero */
-  .ghero{position:relative;padding:64px 0 34px;overflow:hidden}
-  .ghero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(198,255,0,.15),transparent 62%);filter:blur(20px);z-index:0;pointer-events:none}
-  .ghero .wrap{position:relative;z-index:1}
-  .pill{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--neon);background:rgba(198,255,0,.1);border:1px solid rgba(198,255,0,.24);padding:6px 14px;border-radius:999px;letter-spacing:.4px;margin-bottom:20px}
-  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.1rem,5vw,3rem);line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px}
-  h1 .hl{color:var(--neon)}
-  .sub{font-size:1.12rem;color:var(--muted);max-width:52ch}
+  /* ---------- topo ---------- */
+  .topbar{border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.14rem;font-variation-settings:"wdth" 108;letter-spacing:-.02em}
+  .brand img{width:28px;height:28px;border-radius:7px}
+  .brand i{font-style:normal;color:var(--neon)}
+  .back{font-size:.86rem;font-weight:600;color:var(--mute-dark)}
+  .back:hover{color:var(--neon)}
 
-  /* table of contents */
-  .toc{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 6px}
-  .toc a{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:600;color:var(--text);background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:999px;padding:8px 15px;transition:border-color .15s,transform .15s}
-  .toc a:hover{border-color:rgba(198,255,0,.4);transform:translateY(-2px)}
-  .toc a b{color:var(--neon);font-family:var(--display)}
+  /* ---------- hero ----------
+     O argumento é o print, não a headline. Por isso o telefone divide o palco
+     com o texto já na primeira dobra. */
+  .hero{padding:52px 0 8px}
+  .hero-in{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:44px;align-items:center}
+  .hero p.lead{margin-top:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .chip{
+    font-size:.8rem;font-weight:700;font-variation-settings:"wdth" 86;
+    border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:5px 11px;color:#D6D8D1;
+  }
+  .chip.on{border-color:var(--neon);color:var(--neon)}
+  .jump{
+    display:inline-block;margin-top:26px;
+    background:var(--neon);color:#0E0E10;font-weight:800;
+    padding:13px 22px;border-radius:9px;font-size:1rem;
+  }
+  .jump:hover{background:#D4FF33}
 
-  /* steps */
-  .stepblock{padding:34px 0;border-top:1px solid rgba(255,255,255,.06)}
-  .stepblock:first-of-type{border-top:none}
-  .sh{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-  .snum{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--neon);color:#0E0E10;font-family:var(--display);font-weight:700;font-size:1.2rem;display:grid;place-items:center}
-  .sh h2{font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.5px}
-  .stepblock p{color:#cfcfd4;margin-bottom:12px}
-  .stepblock p.muted{color:var(--muted);font-size:.95rem}
-  ol.flow,ul.flow{margin:6px 0 12px;padding-left:0;list-style:none}
-  ol.flow li,ul.flow li{position:relative;padding:7px 0 7px 26px;color:#dcdce0}
-  ol.flow{counter-reset:f}
-  ol.flow li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:8px;width:18px;height:18px;font-size:.66rem;font-family:var(--display);font-weight:700;background:rgba(198,255,0,.14);color:var(--neon);border-radius:6px;display:grid;place-items:center}
-  ul.flow li::before{content:"›";position:absolute;left:6px;top:6px;color:var(--neon);font-weight:700}
-  .k{font-family:var(--display);font-weight:700;font-size:.86em;background:var(--surface2);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:2px 8px;color:#fff;white-space:nowrap;display:inline-block}
-  .tip{background:linear-gradient(160deg,rgba(198,255,0,.08),rgba(24,24,27,.3));border:1px solid rgba(198,255,0,.2);border-left:3px solid var(--neon);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:.94rem;color:#dcdce0}
-  .tip b{color:var(--neon)}
+  /* ---------- o telefone ----------
+     Moldura fina, sem notch desenhado: o conteúdo é a captura, a moldura só
+     diz "isto é o app". */
+  .phone{
+    width:100%;max-width:290px;border-radius:26px;overflow:hidden;
+    background:var(--ink);border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 26px 60px rgba(0,0,0,.5);
+  }
+  .phone.on-paper{border-color:rgba(0,0,0,.16);box-shadow:0 20px 44px rgba(20,21,15,.22)}
+  .phone .frame{position:relative;aspect-ratio:708/1456;background:var(--ink)}
+  .hero .phone .frame{aspect-ratio:708/862}
+  .hero .phone{max-width:344px}
+  .phone .frame img{width:100%;height:100%;object-fit:cover}
 
-  /* prints do app */
-  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin:20px 0 6px}
-  .shot{margin:0}
-  .shot img{width:100%;display:block;border-radius:18px;background:var(--bg);border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 40px rgba(198,255,0,.06)}
-  .shot figcaption{color:var(--muted);font-size:.84rem;margin-top:9px;line-height:1.45}
-  .shot figcaption b{color:var(--text)}
+  /* alvo do toque: é o payload didático, não enfeite */
+  .hot{
+    position:absolute;border:2.5px solid var(--neon);border-radius:8px;pointer-events:none;
+    box-shadow:0 0 0 3px rgba(198,255,0,.16),0 0 22px rgba(198,255,0,.35);
+  }
+  .hot.round{border-radius:999px}
+  @media(prefers-reduced-motion:no-preference){
+    .hot{animation:tap .9s ease-out 1}
+    @keyframes tap{from{box-shadow:0 0 0 14px rgba(198,255,0,0);opacity:.2}}
+  }
 
-  /* code / deep link */
-  code.dl{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface2);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:2px 7px;font-size:.86em;color:var(--neon)}
+  /* ---------- provas ---------- */
+  .why{padding:64px 0 12px}
+  .claims{margin-top:26px;border-top:1px solid rgba(255,255,255,.1)}
+  .claim{display:grid;grid-template-columns:132px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .claim .fig{font-size:2.1rem;font-weight:800;font-variation-settings:"wdth" 116;line-height:1;color:var(--neon);letter-spacing:-.03em}
+  .claim .fig small{display:block;font-size:.74rem;font-weight:700;font-variation-settings:"wdth" 74;letter-spacing:.05em;color:var(--mute-dark);margin-top:6px;line-height:1.35}
+  .claim h3{margin-bottom:4px}
+  .claim p{color:#C4C6BF;font-size:.99rem;max-width:60ch}
 
-  /* final cta */
-  .final{text-align:center;margin:26px 0 70px;background:linear-gradient(150deg,rgba(198,255,0,.1),rgba(255,45,120,.08));border:1px solid rgba(198,255,0,.18);border-radius:24px;padding:48px 26px}
-  .final h2{font-family:var(--display);font-weight:700;font-size:1.7rem;letter-spacing:-.5px;margin-bottom:8px}
-  .final p{color:var(--muted);margin-bottom:24px}
-  .badges{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-  .badge{display:inline-flex;align-items:center;gap:11px;background:#000;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 18px;min-width:186px;transition:border-color .15s,transform .15s}
-  .badge:hover{border-color:rgba(198,255,0,.4);transform:translateY(-2px)}
-  .badge svg{width:26px;height:26px;flex:0 0 auto}
-  .badge .txt{display:flex;flex-direction:column;line-height:1.15;text-align:left}
-  .badge .txt small{font-size:.62rem;color:var(--muted);letter-spacing:.3px}
-  .badge .txt b{font-family:var(--display);font-weight:700;font-size:1.04rem;color:#fff}
+  /* ---------- o guia (documento claro) ---------- */
+  .guide{background:var(--paper);color:var(--ink-on-paper);padding:56px 0 62px;margin-top:60px}
+  .guide .wrap{max-width:1240px}
+  .guide .lbl{color:var(--mute-light)}
+  .guide h2{margin-top:8px}
+  .guide .intro{color:var(--mute-light);margin-top:12px;max-width:56ch}
 
-  footer{border-top:1px solid rgba(255,255,255,.06);padding:30px 0;color:var(--muted);font-size:.88rem}
+  .stepper{display:grid;grid-template-columns:246px 330px minmax(0,1fr);gap:38px;margin-top:34px;align-items:start}
+
+  /* trilha de passos */
+  .rail{display:flex;flex-direction:column;gap:2px;position:sticky;top:20px}
+  .rail button{
+    display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:baseline;
+    width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    font:inherit;color:var(--mute-light);padding:13px 12px;border-radius:9px;
+    border-left:2px solid transparent;
+  }
+  .rail button .n{font-weight:800;font-variation-settings:"wdth" 74;font-size:.92rem}
+  .rail button .t{font-weight:600;font-size:1rem;line-height:1.25}
+  .rail button:hover{background:var(--paper2)}
+  .rail button[aria-selected="true"]{background:var(--ink);color:#F2F3EF;border-left-color:var(--neon)}
+  .rail button[aria-selected="true"] .n{color:var(--neon)}
+  .rail button:focus-visible{outline:2px solid var(--ink-on-paper);outline-offset:2px}
+
+  /* palco: o aparelho e os controles dele */
+  .stage .phone{max-width:330px}
+  .say h3{font-size:1.34rem;font-variation-settings:"wdth" 106;letter-spacing:-.015em}
+  .say .blurb{color:var(--mute-light);margin-top:8px}
+  .cap{margin-top:20px;padding-top:18px;border-top:1px solid var(--rule);font-size:1.02rem}
+  .cap .k{
+    display:inline-block;background:var(--ink);color:#fff;border-radius:5px;
+    padding:1px 7px;font-size:.88em;font-weight:700;font-variation-settings:"wdth" 92;white-space:nowrap;
+  }
+  .cap .note{display:block;margin-top:8px;font-size:.86rem;color:var(--mute-light)}
+
+  /* controles do carrossel */
+  .ctl{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .ctl button{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);
+    background:transparent;cursor:pointer;color:var(--ink-on-paper);
+    display:grid;place-items:center;font-size:1.15rem;line-height:1;font-family:inherit;
+  }
+  .ctl button:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink)}
+  .ctl button:disabled{opacity:.3;cursor:default}
+  .ctl button:focus-visible{outline:2px solid var(--ink-on-paper);outline-offset:2px}
+  .dots{display:flex;gap:6px;align-items:center}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--rule);display:block}
+  .dots i.on{background:var(--ink-on-paper);width:20px;border-radius:4px}
+  .count{margin-left:auto;font-size:.82rem;font-weight:700;font-variation-settings:"wdth" 74;letter-spacing:.05em;color:var(--mute-light)}
+
+  /* ---------- fechamento ---------- */
+  .close{padding:60px 0 20px}
+  .fine{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 22px;color:#B9BBB4;font-size:.94rem;max-width:70ch}
+  .fine b{color:#F2F3EF}
+  .fine a{color:var(--neon);text-decoration:underline}
+  .cta{margin:44px 0 70px;text-align:center}
+  .badges{display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .badge{display:inline-flex;align-items:center;gap:11px;background:#000;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 18px;min-width:184px}
+  .badge:hover{border-color:var(--neon)}
+  .badge svg{width:25px;height:25px;flex:0 0 auto}
+  .badge span{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+  .badge small{font-size:.62rem;color:var(--mute-dark)}
+  .badge b{font-weight:800;font-size:1rem}
+
+  footer{border-top:1px solid rgba(255,255,255,.07);padding:26px 0;color:var(--mute-dark);font-size:.86rem}
   .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .foot-links a{margin-left:18px;transition:color .14s} .foot-links a:hover{color:var(--neon)}
+  .foot-links{display:flex;gap:18px}
+  .foot-links a:hover{color:var(--neon)}
 
-  /* vitrine da avaliacao (#238) */
-  .feature{background:linear-gradient(155deg,rgba(198,255,0,.09),rgba(24,24,27,.4));border:1px solid rgba(198,255,0,.2);border-radius:26px;padding:34px 30px;margin:10px 0 4px}
-  .feature h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.8px;line-height:1.12;margin-bottom:12px}
-  .feature h2 .hl{color:var(--neon)}
-  .feature p{color:#cfcfd4;max-width:60ch}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin:24px 0 6px}
-  .stats div{background:rgba(14,14,16,.5);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 12px;text-align:center}
-  .stats b{display:block;font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--neon);line-height:1.1}
-  .stats span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.35}
-  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:26px 0 8px}
-  .fcard{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:18px 18px 16px}
-  .fcard h3{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:6px}
-  .fcard p{color:var(--muted);font-size:.9rem;margin:0}
-  .fcard .fico{font-size:1.25rem;line-height:1;margin-bottom:8px}
-  .shot.big{max-width:330px;margin:26px auto 4px}
-
-  @media(max-width:560px){.sh h2{font-size:1.2rem}.badge{min-width:0;flex:1}}
+  /* ---------- estreito ---------- */
+  @media(max-width:900px){
+    .hero{padding-top:36px}
+    .hero-in{grid-template-columns:1fr;gap:30px}
+    .hero .phone{max-width:286px;margin:0 auto;justify-self:center}
+    .stepper{grid-template-columns:1fr;gap:18px}
+    .stage .phone{max-width:300px;margin:0 auto}
+    .ctl{justify-content:center;margin-top:14px}
+    .count{margin-left:0}
+    /* a trilha vira uma fita rolável de passos */
+    .rail{
+      position:static;flex-direction:row;gap:8px;overflow-x:auto;
+      padding-bottom:6px;scroll-snap-type:x proximity;
+      -ms-overflow-style:none;scrollbar-width:none;
+    }
+    .rail::-webkit-scrollbar{display:none}
+    .rail button{
+      grid-template-columns:auto;gap:0;width:auto;flex:0 0 auto;scroll-snap-align:start;
+      border-left:0;border:1px solid var(--rule);border-radius:999px;padding:9px 15px;
+    }
+    .rail button .t{font-size:.9rem;white-space:nowrap}
+    .rail button .n{display:none}
+    .rail button[aria-selected="true"]{border-color:var(--ink)}
+    .cap{min-height:0}
+  }
+  @media(max-width:620px){
+    .claim{grid-template-columns:1fr;gap:4px}
+    .claim .fig{font-size:1.7rem;display:flex;align-items:baseline;gap:9px}
+    .claim .fig small{margin-top:0}
+    .badge{min-width:0;flex:1}
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-in">
-    <a class="brand" href="index.html"><img src="icon.png" alt="Chickn"> Chick<span>n</span></a>
-    <a class="nav-link" href="index.html">← Voltar ao site</a>
+<div class="topbar">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="icon.png" alt=""> Chick<i>n</i></a>
+    <a class="back" href="index.html">Voltar ao site</a>
   </div>
-</nav>
+</div>
 
-<header class="ghero">
-  <div class="wrap">
-    <span class="pill">🧑‍🏫 Guia rápido pro Personal</span>
-    <h1>Seus treinos, <span class="hl">seus alunos</span>, num lugar só.</h1>
-    <p class="sub">Em poucos minutos você ativa o Modo Personal, monta um programa, organiza seus alunos em grupos, <b>faz a avaliação física dentro do app</b> e acompanha a execução de cada um. Passo a passo, com os nomes certinhos dos botões.</p>
-
-    <div class="toc">
-      <a href="#ativar"><b>1</b> Ativar</a>
-      <a href="#programa"><b>2</b> Criar programa</a>
-      <a href="#grupo"><b>3</b> Montar grupo</a>
-      <a href="#convite"><b>4</b> Convidar aluno</a>
-      <a href="#acompanhar"><b>5</b> Acompanhar</a>
-      <a href="#fichas"><b>6</b> Avaliar</a>
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="lbl">Modo Personal</p>
+      <h1 style="margin-top:14px">Da anamnese ao treino de hoje, sem trocar de app.</h1>
+      <p class="lead col">Seis passos com as telas reais do Chickn. Dá pra fazer a avaliação
+        física do seu aluno, montar o treino, organizar a turma e ver quem sumiu — no mesmo
+        lugar em que ele registra a série.</p>
+      <div class="chips">
+        <span class="chip on">Grátis</span>
+        <span class="chip">iPhone e Android</span>
+        <span class="chip">Funciona sem internet</span>
+      </div>
+      <a class="jump" href="#guia">Ver o guia de 6 passos</a>
+    </div>
+    <div class="phone" style="justify-self:end">
+      <div class="frame">
+        <img src="shots/g-hero.webp" width="708" height="862"
+             alt="Tela Comparar avaliações do Chickn, com peso, IMC e medidas na coluna Antes, na coluna Depois e a diferença calculada">
+      </div>
     </div>
   </div>
 </header>
 
-<section class="wrap">
-  <div class="feature">
-    <span class="pill" style="margin-bottom:16px">🆕 Novidade</span>
-    <h2>A avaliação do seu aluno <span class="hl">inteira dentro do app</span>.</h2>
-    <p>Anamnese, PAR-Q, dobras cutâneas, perimetria, sinais vitais, testes de
-    condicionamento e prontuário. Sem Google Forms, sem planilha, sem foto de ficha
-    no WhatsApp — e o resultado já nasce colado no treino que você prescreveu pra
-    ele.</p>
-
-    <div class="stats">
-      <div><b>21</b><span>modelos prontos</span></div>
-      <div><b>35</b><span>fórmulas com a fonte citada</span></div>
-      <div><b>15</b><span>tabelas de referência</span></div>
-      <div><b>240</b><span>campos catalogados</span></div>
-    </div>
-
-    <figure class="shot big">
-      <img src="shots/personal-comparativo.png" alt="Comparativo de avaliações: peso, IMC e medidas antes, depois e a diferença" loading="lazy">
-      <figcaption><b>Antes × Depois × Δ:</b> duas avaliações lado a lado, com a diferença calculada. Compartilha como imagem e o aluno recebe pronto no WhatsApp.</figcaption>
-    </figure>
-
-    <div class="feat-grid">
-      <div class="fcard">
-        <div class="fico">📋</div>
-        <h3>Traga o seu questionário</h3>
-        <p>Já tem a sua anamnese em PDF, Word ou foto? A IA lê e monta o modelo dentro do app. Você não recomeça do zero nem abandona o que já funciona.</p>
-      </div>
-      <div class="fcard">
-        <div class="fico">✉️</div>
-        <h3>O aluno sem app também responde</h3>
-        <p>Manda a ficha por e-mail, ele responde o e-mail, e você cola a resposta de volta — a IA transcreve pros campos certos. Serve pro aluno que nunca vai baixar nada.</p>
-      </div>
-      <div class="fcard">
-        <div class="fico">📵</div>
-        <h3>Funciona no subsolo</h3>
-        <p>A ficha preenchida na academia sem sinal não se perde: fica no aparelho e sobe sozinha quando a conexão volta.</p>
-      </div>
-      <div class="fcard">
-        <div class="fico">🧮</div>
-        <h3>Não precisa decorar equação</h3>
-        <p>Escolhe a fórmula pelo nome — Pollock, Jackson &amp; Ward, Faulkner, Petroski, Siri, Mifflin-St Jeor, Cooper, Karvonen, Brzycki — e o app escreve a expressão e cria os campos que faltam.</p>
-      </div>
-      <div class="fcard">
-        <div class="fico">🔁</div>
-        <h3>Check-in que se redispara</h3>
-        <p>Marca “repetir a cada 7 dias” e o questionário volta pra turma inteira toda semana, sem você lembrar de nada.</p>
-      </div>
-      <div class="fcard">
-        <div class="fico">🗒️</div>
-        <h3>Prontuário datado</h3>
-        <p>O lugar de anotar a razão que explica o número: a lesão do dia 12, a viagem, a semana de prova. Daqui a três meses o buraco no volume tem explicação.</p>
+<section class="wrap why">
+  <p class="lbl">Por que existe</p>
+  <h2 style="margin-top:10px">O treino já tem app. A avaliação não tinha.</h2>
+  <div class="claims">
+    <div class="claim">
+      <div class="fig">21<small>fichas prontas</small></div>
+      <div>
+        <h3>Anamnese, PAR-Q, dobras, perimetria e prontuário</h3>
+        <p>Os apps de treino que o seu aluno já usa registram série, carga e recorde. A ficha
+          de avaliação continua no papel, na planilha ou no Google Forms — e o resultado nunca
+          encosta no treino que você prescreveu.</p>
       </div>
     </div>
-
-    <div class="tip"><b>A conta é do app, a leitura é sua.</b> O Chickn calcula o
-    número do protocolo e mostra a tabela publicada com a fonte do lado — mas
-    nunca aponta em que faixa o seu aluno caiu. Classificar é laudo, e laudo é
-    seu, não de um app.</div>
+    <div class="claim">
+      <div class="fig">35<small>fórmulas com a fonte</small></div>
+      <div>
+        <h3>A conta é do app, a leitura é sua</h3>
+        <p>Pollock, Jackson &amp; Ward, Faulkner, Petroski, Siri, Mifflin-St Jeor, Cooper,
+          Karvonen, Brzycki. Você escolhe pelo nome, o app escreve a expressão e mostra a
+          tabela publicada com a fonte do lado. Ele calcula o número, mas não diz em que faixa
+          o seu aluno caiu — classificar é laudo, e laudo é seu.</p>
+      </div>
+    </div>
+    <div class="claim">
+      <div class="fig">0<small>alunos deixados de fora</small></div>
+      <div>
+        <h3>Quem não vai baixar app nenhum também responde</h3>
+        <p>A ficha sai por e-mail, ele responde o e-mail, você cola a resposta de volta e a IA
+          transcreve pros campos certos. E o que você preenche na academia sem sinal não se
+          perde: fica no aparelho e sobe sozinho quando a conexão volta.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<main class="wrap">
+<section class="guide" id="guia">
+  <div class="wrap">
+    <p class="lbl">Guia rápido</p>
+    <h2>Seis passos, com os nomes certos dos botões.</h2>
+    <p class="intro">Escolha o passo e vá passando as telas. É o app de verdade, na ordem em
+      que você faz: primeiro o aluno chega, depois você avalia, depois prescreve.</p>
 
-  <!-- 1 -->
-  <section class="stepblock" id="ativar">
-    <div class="sh"><div class="snum">1</div><h2>Ative o Modo Personal</h2></div>
-    <p>Baixe o Chickn (App Store ou Google Play) e, na tela inicial, toque no ícone de <b>apito</b> 🐔 no topo — é o atalho do <span class="k">Modo Personal</span>.</p>
-    <ul class="flow">
-      <li>Na pergunta “teu lado”, escolha <span class="k">Sou personal (coach)</span>.</li>
-      <li>Entre com sua conta (<span class="k">Entrar com Google</span> ou Apple) — o coaching sincroniza entre você e seus alunos, então precisa de login.</li>
-      <li>Você cai na <b>Área do Personal</b>, com quatro blocos: <span class="k">Grupos</span>, <span class="k">Programas</span>, <span class="k">Alunos</span> e <span class="k">Minha marca</span>.</li>
-    </ul>
-    <figure class="shot" style="max-width:260px;margin:18px 0 6px">
-      <img src="shots/personal-area.png" alt="Área do Personal: grupos, programas, alunos, financeiro e minha marca" loading="lazy">
-      <figcaption>A <b>Área do Personal</b>. O bloco de cima é o que precisa de você hoje — quem sumiu, quem está sem turma.</figcaption>
-    </figure>
-    <div class="tip"><b>Dica:</b> em <span class="k">Minha marca</span> você define a foto, o nome e a cor que aparecem pro aluno — ele vê “SEU PERSONAL” com a sua cara no topo da home dele.</div>
-    <p class="muted">Também dá pra ligar em <b>Configurações → “Sou personal trainer”</b>.</p>
-  </section>
-
-  <!-- 2 -->
-  <section class="stepblock" id="programa">
-    <div class="sh"><div class="snum">2</div><h2>Crie um programa</h2></div>
-    <p>Na Área do Personal, abra <span class="k">Programas</span> e toque em <span class="k">Novo programa</span>.</p>
-    <ol class="flow">
-      <li>Dê um <b>Nome do programa</b> (ex.: “Treino da semana”).</li>
-      <li>Adicione os treinos da semana com <span class="k">Novo treino</span> — eles saem como <b>Treino A, B, C…</b>. Em cada um, ajuste o nome e o <b>dia da semana</b> (ou deixe “Qualquer dia”).</li>
-      <li>Em cada treino, toque <span class="k">Adicionar exercício</span> e defina <span class="k">Séries</span> e <span class="k">Reps</span>. Exercício de cardio pede <b>minutos</b> e <b>km</b>.</li>
-      <li>Toque <span class="k">SALVAR</span>.</li>
-    </ol>
-    <div class="tip"><b>Atalhos que economizam tempo:</b> no menu de cada treino tem <span class="k">Duplicar treino</span> e <span class="k">Aplicar a todos</span> (3×12, 4×10 ou 4×8). E no topo da lista você acha <span class="k">Programas prontos</span> (catálogo por objetivo/nível), <span class="k">Auto-montar</span> e <span class="k">Importar treino</span> (a IA lê uma foto ou texto e monta pra você).</div>
-    <p class="muted">O programa que você cria como coach fica pros seus alunos — ele não ativa no seu próprio “Treino de hoje”. Tocar no programa <b>edita</b> ele.</p>
-  </section>
-
-  <!-- 3 -->
-  <section class="stepblock" id="grupo">
-    <div class="sh"><div class="snum">3</div><h2>Monte um grupo e defina o programa</h2></div>
-    <p>Grupos são a forma principal de entregar treino: cada grupo tem <b>um programa ativo</b>, e ele vale pra todos os alunos daquele grupo.</p>
-    <ol class="flow">
-      <li>Abra <span class="k">Grupos</span> → <span class="k">Novo grupo</span>, dê um <b>Nome do grupo</b> e toque <span class="k">Criar</span>.</li>
-      <li>Dentro do grupo, em <span class="k">Programa do grupo</span> toque <span class="k">Definir</span> e escolha o programa que você criou.</li>
-      <li>Em <b>ALUNOS DO GRUPO</b>, marque quem faz parte. (Também dá pra adicionar pelo menu <span class="k">Adicionar a grupo</span> na lista de alunos.)</li>
-    </ol>
-    <div class="tip">Trocou o programa do grupo? Ele muda pra <b>todos os membros</b> de uma vez. Prático pra virar a semana ou o mesociclo.</div>
-  </section>
-
-  <!-- 4 -->
-  <section class="stepblock" id="convite">
-    <div class="sh"><div class="snum">4</div><h2>Convide seus alunos</h2></div>
-    <p>Abra <span class="k">Alunos</span> → <span class="k">Adicionar aluno</span>:</p>
-    <ol class="flow">
-      <li>Preencha o <b>Nome do aluno</b> (obrigatório) e, se quiser, o <b>Email</b> (opcional).</li>
-      <li>Toque <span class="k">Convidar</span>. O app gera um <b>código de 8 caracteres</b> e um <b>QR code / link</b>.</li>
-      <li>Toque <span class="k">Compartilhar</span> pra mandar pro aluno por WhatsApp — vai um textinho pronto com o código e o link.</li>
-    </ol>
-    <p class="muted" style="margin-top:6px">No app do aluno, pra aceitar: apito no topo da home → <span class="k">Sou aluno</span> → digita o código (ou escaneia o QR, ou abre o link <code class="dl">chickn://vincular?code=…</code>) → <span class="k">Aceitar convite</span>. Pronto: vocês estão vinculados. 🐔</p>
-    <div class="tip"><b>Atalho do email:</b> se você preencher o email do aluno e ele entrar no app com <b>esse mesmo email</b>, o vínculo é feito sozinho — ele só toca em “Aceitar e compartilhar treinos”, sem digitar código. (O app não dispara email; é só um match automático.)</div>
-  </section>
-
-  <!-- 5 -->
-  <section class="stepblock" id="acompanhar">
-    <div class="sh"><div class="snum">5</div><h2>Acompanhe a execução</h2></div>
-    <p><b>O que o aluno vê:</b> um cartão <span class="k">SEU PERSONAL</span> com a sua marca, os seus recados e as fichas dele — e, ao lado, um cartão <span class="k">DO SEU PERSONAL</span> com o treino de hoje já pronto pra começar. Assim que ele aceita o vínculo, o seu programa <b>entra sozinho</b>: ele não precisa escolher nada. O programa que ele montou sozinho e o seu convivem em cartões separados — um nunca atrapalha o outro.</p>
-    <p style="margin-top:14px"><b>O que você vê:</b></p>
-    <ul class="flow">
-      <li>No aluno, aba <span class="k">Treinos</span>: acompanhamento com total, treinos na semana, volume (kg) e o RPE de cada série. Dá pra <span class="k">Registrar treino</span> pelo aluno e exportar <b>CSV</b>.</li>
-      <li>No aluno, aba <span class="k">Relatório</span>: frequência, aderência e progressão.</li>
-      <li>No grupo, <span class="k">Relatório do grupo</span>: quem treinou na semana, ranking de aderência e a lista de “sumidos” (parados há mais de 5 dias).</li>
-    </ul>
-    <div class="shots">
-      <figure class="shot">
-        <img src="shots/personal-relatorio.png" alt="Relatório do grupo com ranking de aderência" loading="lazy">
-        <figcaption><b>Relatório do grupo:</b> quantos estão ativos, quantos sumiram e o ranking de aderência da semana.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="shots/personal-pagamentos.png" alt="Tela de pagamentos com mensalidades pagas e em aberto" loading="lazy">
-        <figcaption><b>Financeiro:</b> mensalidade por aluno, o que já entrou no mês e a previsão do próximo ciclo.</figcaption>
-      </figure>
+    <div class="stepper">
+      <div class="rail" role="tablist" aria-label="Passos do guia" id="rail"></div>
+      <div class="stage">
+        <div class="phone on-paper">
+          <div class="frame" id="frame"></div>
+        </div>
+        <div class="ctl">
+          <button type="button" id="prev" aria-label="Tela anterior">&#8249;</button>
+          <button type="button" id="next" aria-label="Próxima tela">&#8250;</button>
+          <div class="dots" id="dots" aria-hidden="true"></div>
+          <span class="count" id="count"></span>
+        </div>
+      </div>
+      <div class="say">
+        <h3 id="stepTitle"></h3>
+        <p class="blurb" id="stepBlurb"></p>
+        <p class="cap" id="cap"></p>
+      </div>
     </div>
-    <div class="tip">Tudo sincroniza entre as contas em tempo real. O aluno pode <b>revogar o vínculo</b> quando quiser — o consentimento é dele.</div>
-  </section>
+  </div>
+</section>
 
-  <!-- 6 -->
-  <section class="stepblock" id="fichas">
-    <div class="sh"><div class="snum">6</div><h2>Avalie: questionários, fichas e prontuário</h2></div>
-    <p>Na Área do Personal, abra <span class="k">Questionários</span>. É aqui que mora a anamnese, o PAR-Q, a avaliação física, o check-in da semana — e qualquer outra ficha que você já use no papel.</p>
+<section class="wrap close">
+  <p class="lbl">Sobre os dados do seu aluno</p>
+  <h2 style="margin:10px 0 18px">Ficha de saúde é responsabilidade sua, e o app trata assim.</h2>
+  <div class="fine">
+    <p>A ficha de um aluno é visível <b>só pra você e pra ele</b> — nem outro personal, nem
+      outro aluno. Nada disso entra em estatística de uso nem vai pra IA sem você mandar. Se o
+      vínculo for desfeito, por você ou por ele, as fichas de saúde daquele aluno ficam
+      <b>90 dias</b> e depois são apagadas. Está tudo escrito na
+      <a href="privacy-policy.html">política de privacidade</a>.</p>
+    <p style="margin-top:12px">Nos prints deste guia os nomes dos alunos estão borrados de
+      propósito: é uma conta real.</p>
+  </div>
 
-    <p style="margin-top:16px"><b>1. Monte o modelo</b> — de três jeitos:</p>
-    <ul class="flow">
-      <li><span class="k">Modelos prontos</span>: 21 modelos em 5 famílias (anamnese, composição corporal, condicionamento, funcional e sinais vitais). Escolher <b>copia</b> as perguntas pro seu modelo — depois é tudo seu: edite, tire, acrescente.</li>
-      <li><span class="k">Importar questionário</span>: manda o print, o PDF ou o texto da ficha que você já usa e a IA monta os campos. Você revisa antes de salvar.</li>
-      <li><span class="k">Modelo em branco</span>: <span class="k">Adicionar pergunta</span>, escolha o <b>Tipo</b> (texto, número com unidade, escala, sim/não, escolha, data, título de seção ou <b>calculado</b>) e pronto.</li>
-    </ul>
-
-    <p style="margin-top:16px"><b>2. Deixe o app fazer a conta</b> — num campo <b>Calculado</b>, toque <span class="k">Escolher da biblioteca</span>: 35 fórmulas com a fonte do protocolo do lado (Pollock, Jackson &amp; Ward, Faulkner, Petroski, Siri, Brozek, Mifflin-St Jeor, Harris-Benedict, Cooper, Tanaka, Karvonen, Brzycki, Epley, Wells, TUG, SPPB). O app escreve a expressão e <b>cria sozinho as perguntas que faltam</b> pra ela funcionar.</p>
-
-    <p style="margin-top:16px"><b>3. Dispare</b> — toque <span class="k">Enviar</span>:</p>
-    <ul class="flow">
-      <li><span class="k">Um aluno</span> ou <span class="k">Uma turma</span> — a turma inteira de uma vez.</li>
-      <li><span class="k">Prazo para responder</span> e <span class="k">Repetir toda semana</span> (um disparo novo nasce sozinho a cada 7 dias — o check-in não depende de você lembrar).</li>
-      <li>Aluno que ainda não usa o app? O Chickn avisa e oferece <span class="k">Enviar por email</span> (ele responde o email, a resposta cai na sua caixa) ou <span class="k">Preencher eu mesmo</span>, pra avaliação presencial.</li>
-    </ul>
-
-    <p style="margin-top:16px"><b>4. A ficha volta</b> — o aluno vê “questionários pra responder” na home dele e toca <span class="k">Responder</span>. Respondeu por email? Abra o aluno → aba <span class="k">Fichas</span> → <span class="k">Importar resposta</span>, cole o email e a IA preenche os campos pra você conferir.</p>
-    <ul class="flow">
-      <li>Na aba <span class="k">Fichas</span> fica o histórico do aluno, com <span class="k">Evolução de</span> — escolha a medida e veja a linha.</li>
-      <li><span class="k">Comparar avaliações</span> põe duas fichas lado a lado: <b>Antes</b>, <b>Depois</b> e a diferença. Dá pra compartilhar como imagem direto no WhatsApp.</li>
-      <li><span class="k">Copiar da última ficha</span> traz os valores anteriores pra você só corrigir o que mudou.</li>
-      <li>Na aba <span class="k">Prontuário</span>, <span class="k">Nova anotação</span>: dor, lesão, viagem, falta — com a <b>data do ocorrido</b>. É o que explica o número três meses depois. Você decide se o aluno vê.</li>
-    </ul>
-
-    <div class="shots">
-      <figure class="shot">
-        <img src="shots/personal-modelos.png" alt="Catálogo de modelos prontos: anamnese, questionários e composição corporal" loading="lazy">
-        <figcaption><b>Modelos prontos:</b> 21 fichas em 5 famílias. Escolher copia as perguntas pro seu modelo — o resto você ajusta.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="shots/personal-ficha.png" alt="Preenchimento da ficha de antropometria com o IMC calculado na hora" loading="lazy">
-        <figcaption><b>A conta na hora:</b> digitou peso e altura, o campo calculado responde. Sem planilha aberta do lado.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="shots/personal-fichas-aluno.png" alt="Aba Fichas do aluno com gráfico de evolução e histórico de avaliações" loading="lazy">
-        <figcaption><b>Aba Fichas:</b> o histórico do aluno com a linha de evolução da medida que você escolher.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="shots/personal-recados.png" alt="Tela inicial do aluno com o recado da turma e o recado individual do personal" loading="lazy">
-        <figcaption><b>Recado em 3 níveis:</b> a sua frase de sempre, o aviso da turma e a instrução só pra ele — empilhados, com a data de cada um.</figcaption>
-      </figure>
-    </div>
-
-    <div class="tip"><b>Recado do personal:</b> na turma, <span class="k">Recado da turma</span>; no aluno, <span class="k">Recado para este aluno</span>. Os dois aparecem na tela inicial dele junto da sua marca, com “ontem”/“há N dias” do lado — aviso velho se denuncia sozinho.</div>
-
-    <p class="muted" style="margin-top:12px">Dado de saúde é sério: só você e o aluno enxergam a ficha dele, nada disso entra em estatística nem vai pra IA sem você mandar, e o app <b>calcula mas não classifica</b> — mostra a tabela publicada com a fonte e deixa a leitura com você. Se o vínculo for desfeito, as fichas de saúde ficam 90 dias e depois são apagadas.</p>
-  </section>
-
-</main>
-
-<section class="wrap">
-  <div class="final">
-    <div class="pill" style="margin-bottom:14px">Bora começar 🐔</div>
-    <h2>Baixe e monte seu primeiro programa hoje.</h2>
-    <p>Grátis, no iPhone e no Android.</p>
+  <div class="cta">
+    <h2>Baixe e monte a primeira ficha hoje.</h2>
+    <p class="lead" style="margin-top:8px">O Modo Personal é de graça. Sem plano, sem teto de alunos.</p>
     <div class="badges">
       <a class="badge" href="https://apps.apple.com/br/app/id6788411736" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.1-2.01-3.77-2.04-1.6-.16-3.13.94-3.94.94-.81 0-2.07-.92-3.4-.89-1.75.03-3.36 1.02-4.26 2.58-1.82 3.16-.46 7.83 1.3 10.39.86 1.25 1.89 2.66 3.24 2.61 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.28 3.15-2.54.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.73-1.05-2.76-4.15zM14.6 4.59c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
-        <span class="txt"><small>Baixe na</small><b>App Store</b></span>
+        <span><small>Baixe na</small><b>App Store</b></span>
       </a>
       <a class="badge" href="https://play.google.com/store/apps/details?id=app.chickn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -354,7 +349,7 @@
           <path d="M17.05 8.74 13.79 12 3.6 1.81c.3-.18.67-.2 1.01-.02l.12.07 12.32 6.88z" fill="#00F076"/>
           <path d="M17.05 15.26 4.85 22.13l-.12.07c-.34.16-.71.16-1.01-.02L13.79 12l3.26 3.26z" fill="#FF3A44"/>
         </svg>
-        <span class="txt"><small>Disponível no</small><b>Google Play</b></span>
+        <span><small>Disponível no</small><b>Google Play</b></span>
       </a>
     </div>
   </div>
@@ -370,6 +365,178 @@
     </div>
   </div>
 </footer>
+
+<script>
+// Os passos seguem a ordem REAL de quem atende um aluno novo: ele chega, você
+// avalia, você prescreve. Não é a ordem em que as telas foram construídas.
+// `h` marca o alvo do toque em % da captura — é o que faz isto ser guia e não
+// vitrine; só existe onde há um botão único pra apertar.
+var STEPS = [
+  {
+    t:"Ligar o Modo Personal",
+    b:"Precisa de login: o que você monta tem que chegar no celular do aluno.",
+    f:[
+      {i:"g-apito.webp",
+       a:"Tela inicial do Chickn com o ícone de apito no topo",
+       c:'Toque no <span class="k">apito</span> no topo da home. Na pergunta que aparece, escolha <span class="k">Sou personal (coach)</span>.',
+       h:{x:53.6,y:0.4,w:9,h:4.4,r:1}},
+      {i:"g-area.webp",
+       a:"Área do Personal com grupos, programas, alunos, financeiro e questionários",
+       c:'Você cai na <span class="k">Área do Personal</span>. O cartão de cima é o que precisa de você hoje: quem sumiu e quem respondeu uma ficha.'}
+    ]
+  },
+  {
+    t:"Trazer o aluno",
+    b:"O nome basta. O e-mail é opcional e serve de atalho.",
+    f:[
+      {i:"g-novoaluno.webp",
+       a:"Diálogo Novo aluno com o nome preenchido e o botão Convidar",
+       c:'<span class="k">Alunos</span> → <span class="k">Adicionar aluno</span>. Preencha o nome e toque em Convidar. Se você puser o e-mail e ele entrar no app com esse mesmo e-mail, o vínculo fecha sozinho.',
+       h:{x:62.8,y:61.0,w:18.6,h:6.4}},
+      {i:"g-codigo.webp",
+       a:"Código do convite com QR code e o código de oito caracteres",
+       c:'Sai um QR e um código de 8 letras. <span class="k">Compartilhar</span> manda o texto pronto no WhatsApp. No app dele: apito → <span class="k">Sou aluno</span> → digita o código.',
+       h:{x:51.5,y:72.4,w:33,h:6.4}}
+    ]
+  },
+  {
+    t:"Avaliar",
+    b:"Anamnese, PAR-Q, avaliação física e check-in. É a parte que nenhum app de treino tem.",
+    f:[
+      {i:"g-questionarios.webp",
+       a:"Tela Questionários com os botões Modelos prontos, Importar questionário e Modelo em branco",
+       c:'<span class="k">Área do Personal</span> → <span class="k">Questionários</span>. Três caminhos: pegar um modelo pronto, importar o seu, ou montar do zero.',
+       h:{x:3.4,y:12.6,w:93,h:5.4}},
+      {i:"g-modelos.webp",
+       a:"Catálogo de modelos prontos: anamnese, PAR-Q, check-in semanal e composição corporal",
+       c:'21 fichas em 5 famílias. Escolher <b>copia</b> as perguntas pro seu modelo — depois é tudo seu: edite, tire, acrescente.'},
+      {i:"g-construtor.webp",
+       a:"Construtor de questionário com perguntas de número, sim ou não, escolha única, escala e texto longo",
+       c:'Esta anamnese aqui veio de um print: <span class="k">Importar questionário</span> leu e montou os campos sozinho. Cada pergunta tem um tipo — número com unidade, sim/não, escolha, escala, data, texto.'},
+      {i:"g-ficha.webp",
+       a:"Preenchimento da ficha de antropometria com o IMC calculado na hora",
+       c:'Num campo <span class="k">Calculado</span> você escolhe a fórmula pelo nome e o app escreve a conta e cria as perguntas que faltam. Digitou peso e altura, o IMC responde.',
+       h:{x:3.4,y:52.2,w:93,h:6.4}},
+      {i:"g-comparativo.webp",
+       a:"Comparar avaliações: peso, IMC e medidas antes, depois e a diferença",
+       c:'<span class="k">Comparar avaliações</span> põe duas fichas lado a lado: antes, depois e a diferença. Dá pra compartilhar como imagem — o aluno recebe pronto no WhatsApp.'},
+      {i:"g-fichas.webp",
+       a:"Aba Fichas do aluno com histórico de avaliações e gráfico de evolução do peso",
+       c:'A aba <span class="k">Fichas</span> guarda o histórico dele, com a linha de <span class="k">Evolução de</span> na medida que você escolher. Respondeu por e-mail? <span class="k">Importar resposta</span>, cola o e-mail e a IA preenche.'}
+    ]
+  },
+  {
+    t:"Montar o treino",
+    b:"Do zero, pela IA, ou a partir de um print do treino que você já usa.",
+    f:[
+      {i:"g-programas.webp",
+       a:"Lista de programas do personal com filtros Em uso e Sem ninguém",
+       c:'<span class="k">Programas</span> → <span class="k">Novo programa</span>. No topo ainda tem <span class="k">Auto-montar</span> e o import por foto.',
+       h:{x:52,y:88.6,w:44,h:8.8}},
+      {i:"g-programa.webp",
+       a:"Editor de programa com Plano A, B e C e os exercícios com séries e reps",
+       c:'Treino A, B, C… com séries e reps por exercício. Cardio pede minutos e km. No menu de cada treino tem <span class="k">Duplicar treino</span> e <span class="k">Aplicar a todos</span>.'}
+    ]
+  },
+  {
+    t:"Juntar numa turma",
+    b:"Cada turma tem um programa ativo, e ele vale pra todo mundo dela.",
+    f:[
+      {i:"g-grupos.webp",
+       a:"Lista de turmas, cada uma com o número de alunos e o programa ativo",
+       c:'<span class="k">Grupos</span> → <span class="k">Novo grupo</span>. Trocou o programa da turma, trocou pra <b>todos os membros</b> de uma vez — prático pra virar a semana.'},
+      {i:"g-turma.webp",
+       a:"Tela de uma turma com relatório do grupo, programa do grupo e recado da turma",
+       c:'Dentro da turma: <span class="k">Definir</span> o programa e escrever o <span class="k">Recado da turma</span>, que aparece na tela inicial de todos eles.',
+       h:{x:71,y:19.4,w:17,h:4.6}}
+    ]
+  },
+  {
+    t:"Acompanhar",
+    b:"Quem treinou, quem sumiu, quem pagou — e o que o seu aluno vê.",
+    f:[
+      {i:"g-relatorio.webp",
+       a:"Relatório do grupo com ativos, sumidos e ranking de aderência",
+       c:'<span class="k">Relatório do grupo</span>: quem treinou na semana, o ranking de aderência e a lista de sumidos, parados há mais de 5 dias.<span class="note">Nomes borrados de propósito: é uma conta real.</span>'},
+      {i:"g-financeiro.webp",
+       a:"Tela de pagamentos com mensalidades pagas, em aberto e previsão do próximo ciclo",
+       c:'<span class="k">Financeiro</span>: mensalidade por aluno, o que já entrou no mês e a previsão do próximo ciclo.'},
+      {i:"g-aluno.webp",
+       a:"Tela inicial do aluno com a marca do personal, os recados e o treino de hoje",
+       c:'E é isto que o seu aluno vê: a sua marca, os seus recados com a data de cada um, as fichas dele e o treino de hoje já pronto pra começar.'}
+    ]
+  }
+];
+
+var rail=document.getElementById("rail"), frame=document.getElementById("frame"),
+    cap=document.getElementById("cap"), dots=document.getElementById("dots"),
+    count=document.getElementById("count"), prev=document.getElementById("prev"),
+    next=document.getElementById("next"), title=document.getElementById("stepTitle"),
+    blurb=document.getElementById("stepBlurb");
+var s=0, f=0;
+
+STEPS.forEach(function(st,k){
+  var b=document.createElement("button");
+  b.type="button"; b.setAttribute("role","tab");
+  b.innerHTML='<span class="n">'+(k+1)+'</span><span class="t">'+st.t+'</span>';
+  b.addEventListener("click",function(){go(k,0)});
+  rail.appendChild(b);
+});
+
+function go(step,fr){
+  s=step; f=fr;
+  var st=STEPS[s], sh=st.f[f];
+  Array.prototype.forEach.call(rail.children,function(b,k){
+    b.setAttribute("aria-selected", k===s ? "true" : "false");
+  });
+  title.textContent=st.t; blurb.textContent=st.b;
+
+  frame.innerHTML="";
+  var img=document.createElement("img");
+  img.src="shots/"+sh.i; img.alt=sh.a; img.width=708; img.height=1456;
+  if(s>0||f>0) img.loading="lazy";
+  frame.appendChild(img);
+  if(sh.h){
+    var el=document.createElement("span");
+    el.className="hot"+(sh.h.r?" round":"");
+    el.style.cssText="left:"+sh.h.x+"%;top:"+sh.h.y+"%;width:"+sh.h.w+"%;height:"+sh.h.h+"%";
+    frame.appendChild(el);
+  }
+
+  cap.innerHTML=sh.c;
+  dots.innerHTML=st.f.map(function(_,k){return '<i class="'+(k===f?"on":"")+'"></i>'}).join("");
+  count.textContent=(f+1)+" de "+st.f.length;
+  prev.disabled=(s===0&&f===0);
+  next.disabled=(s===STEPS.length-1&&f===st.f.length-1);
+}
+
+// Passar do fim de um passo leva ao próximo: quem só aperta "avançar" percorre
+// o guia inteiro sem precisar voltar na trilha.
+function step(d){
+  var ns=s, nf=f+d;
+  if(nf<0){ ns=s-1; if(ns<0) return; nf=STEPS[ns].f.length-1; }
+  if(nf>=STEPS[ns].f.length){ ns=s+1; if(ns>=STEPS.length) return; nf=0; }
+  go(ns,nf);
+}
+prev.addEventListener("click",function(){step(-1)});
+next.addEventListener("click",function(){step(1)});
+document.addEventListener("keydown",function(e){
+  if(!document.getElementById("guia").contains(document.activeElement)) return;
+  if(e.key==="ArrowRight"){e.preventDefault();step(1)}
+  if(e.key==="ArrowLeft"){e.preventDefault();step(-1)}
+});
+
+// Arrastar o telefone passa a tela — é o gesto que o leitor já espera de um print.
+var x0=null;
+frame.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+frame.addEventListener("touchend",function(e){
+  if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>44) step(dx<0?1:-1);
+},{passive:true});
+
+go(0,0);
+</script>
 
 </body>
 </html>
